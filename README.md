@@ -28,7 +28,7 @@ pip install matplotlib
 pip install gTTS
 ~~~
 
-As a reference, here are all the packages that I have in my environment; note that not all of them are needed for running the demo, but the list may be useful if some dependencies need manual installation after steps 1-9:
+As a reference, here are all the packages that I have in my environment; note that not all of them are needed for running the demo, but the list may be useful if some dependencies need manual installation after the previous steps:
 
 ~~~
 absl-py==0.12.0
