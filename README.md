@@ -9,7 +9,7 @@ The input video is set in `full_system.py` (variable `video_src`). `verbose = 1`
 
 Other parameters that can be varied according to desired performance and available hardware are in `constants.py`: `FRAME_STEP`, `MHI_THRESHOLD`, `CONF_THRESHOLD`, `SIMILARITY_ERROR`.
 
-Note: in order for the activity detection model to work, it needs to be deployed in the cloud. This is not happening all the time, as deployment is being paid per hour.
+_Note_: in order for the activity detection model to work, it needs to be deployed in the cloud. This is not happening all the time, as deployment is being paid per hour. Plus, you need a security key (`har-rgb-3cadab83ede7.json`) to call the model. When needed, please ask me to send you the key and to deploy the model. 
 
 #### Installation:
 Download the object detection model and save directory `object_detector` in the same place where the sources are saved:
