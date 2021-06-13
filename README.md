@@ -28,6 +28,13 @@ pip install matplotlib
 pip install gTTS
 ~~~
 
+Upon installing/using `gTTS`, it might be needed to also install `mpg321`:
+~~~
+sudo apt-get install mpg321
+~~~
+
+If this error occurs: `ALSA lib pcm_dmix.c:1022:(snd_pcm_dmix_open) unable to open slave`, follow the steps here: https://dev.to/setevoy/linux-alsa-lib-pcmdmixc1108sndpcmdmixopen-unable-to-open-slave-38on.
+
 As a reference, here are all the packages that I have in my environment; note that not all of them are needed for running the demo, but the list may be useful if some dependencies need manual installation after the previous steps:
 
 ~~~
