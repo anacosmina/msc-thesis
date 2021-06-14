@@ -46,6 +46,13 @@ sudo apt-get install mpg321
 
 If this error occurs: `ALSA lib pcm_dmix.c:1022:(snd_pcm_dmix_open) unable to open slave`, follow the steps here: https://dev.to/setevoy/linux-alsa-lib-pcmdmixc1108sndpcmdmixopen-unable-to-open-slave-38on.
 
+If this error occurs: `AttributeError: module 'cv2.cv2' has no attribute 'motempl'`, try:
+~~~
+pip uninstall opencv-python
+pip uninstall opencv-contrib-python
+pip install opencv-contrib-python==4.1.2.30
+~~~
+
 As a reference, here are all the packages that I have in my environment; note that not all of them are needed for running the demo, but the list may be useful if some dependencies need manual installation after the previous steps:
 
 <details>
@@ -113,8 +120,7 @@ As a reference, here are all the packages that I have in my environment; note th
   numba==0.53.1<br>
   numpy==1.19.5<br>
   nuscenes-devkit==1.1.5<br>
-  opencv-contrib-python==4.5.2.54<br>
-  opencv-python==4.5.2.54<br>
+  opencv-contrib-python=4.1.2.30<br>
   packaging==20.9<br>
   pandas==1.1.5<br>
   pandocfilters==1.4.3<br>
