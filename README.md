@@ -1,17 +1,6 @@
 ### Activity recognition, object detection, plane segmentation
 
-#### How to run:
-~~~
-python full_system.py tracking --load_model object_detector/coco_tracking.pth
-~~~
-
-The input video is set in `full_system.py` (variable `video_src`). `verbose = 1` only prints results as text, `verbose = 2` also generates the corresponding images (motion maps, bounding boxes etc). `results_to_speech` triggers audio messages.
-
-Other parameters that can be varied according to desired performance and available hardware are in `constants.py`: `FRAME_STEP`, `MHI_THRESHOLD`, `CONF_THRESHOLD`, `SIMILARITY_ERROR`.
-
-_Note_: in order for the activity detection model to work, it needs to be deployed in the cloud. This is not happening all the time, as deployment is being paid per hour. Plus, you need a security key (`har-rgb-3cadab83ede7.json`) to call the model. When needed, please ask me to send you the key and to deploy the model. 
-
-#### Installation:
+#### How to install:
 Download the object detection model and save directory `object_detector` in the same place where the sources are saved:
 https://drive.google.com/file/d/1UQR9MS73JYWMjsoWu_m2o2Nb-MkPwj9x/view?usp=sharing.
 
@@ -27,6 +16,27 @@ pip install google-cloud-automl
 pip install opencv-contrib-python
 pip install matplotlib
 pip install gTTS
+~~~
+
+#### How to run:
+On a machine that has GPUs:
+~~~
+python full_system.py tracking --load_model object_detector/coco_tracking.pth
+~~~
+
+To run only on CPU, add the `--gpus -1` parameter and comment the `torch.cuda.synchronize()` lines in `object_detector/lib/detector.py`.
+
+The input video is set in `full_system.py` (variable `video_src`). `verbose = 1` only prints results as text, `verbose = 2` also generates the corresponding images (motion maps, bounding boxes etc). `results_to_speech` triggers audio messages.
+
+Other parameters that can be varied according to desired performance and available hardware are in `constants.py`: `FRAME_STEP`, `MHI_THRESHOLD`, `CONF_THRESHOLD`, `SIMILARITY_ERROR`.
+
+_Note_: in order for the activity detection model to work, it needs to be deployed in the cloud. This is not happening all the time, as deployment is being paid per hour. Plus, you need a security key (`har-rgb-3cadab83ede7.json`) to call the model. When needed, please ask me to send you the key and to deploy the model.
+
+#### Troubleshooting:
+If while running any errors related to scikit-learn occur:
+~~~
+pip uninstall scikit-learn
+conda install -c conda-forge scikit-learn=0.22.2
 ~~~
 
 Upon installing/using `gTTS`, it might be needed to also install `mpg321`:
