@@ -13,7 +13,7 @@ conda install pytorch==1.4.0 torchvision==0.5.0 -c pytorch
 pip install cython; pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 navigate to object_detector/ and install the requirements: pip install -r requirements.txt
 pip install google-cloud-automl
-pip install opencv-contrib-python
+pip install opencv-contrib-python==4.1.2.30
 pip install matplotlib
 pip install gTTS
 ~~~
