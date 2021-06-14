@@ -17,8 +17,9 @@ https://drive.google.com/file/d/1UQR9MS73JYWMjsoWu_m2o2Nb-MkPwj9x/view?usp=shari
 
 Then:
 ~~~
-conda create --name cosmina python=3.6
+conda create --name cosmina python=3.6 tornado=6.1
 conda activate cosmina
+unset PYTHONPATH
 conda install pytorch==1.4.0 torchvision==0.5.0 -c pytorch
 pip install cython; pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 navigate to object_detector/ and install the requirements: pip install -r requirements.txt
