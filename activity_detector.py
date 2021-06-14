@@ -80,18 +80,19 @@ def detect_activity(frames, mhi_duration, objects, verbose):
     # knowledge and information from the object detection mechanism. An object
     # has more influence if it was detected in more frames. The only objects
     # that can influence the current activities are "cup" and "bottle".
-    nr_occurrences = [obj.nr_occurrences for obj in objects]
-    max_occ = max(nr_occurrences)
-    min_occ = min(nr_occurrences)
+    if objects:
+        nr_occurrences = [obj.nr_occurrences for obj in objects]
+        max_occ = max(nr_occurrences)
+        min_occ = min(nr_occurrences)
     
-    for obj, act in \
-        [("cup", "drink from a mug"), ("bottle", "drink from a bottle")]:
-        if obj in obj_names:
-            crt_occ = [obj.nr_occurrences for obj in objects \
-                if obj.class_name == obj]
-            crt_occ = crt_occ[0] if crt_occ else 0
-            predictions[act] = predictions.setdefault(act, 0) + 0.3 * \
-                (max_occ - crt_occ) / (max_occ - min_occ)
+        for obj, act in \
+            [("cup", "drink from a mug"), ("bottle", "drink from a bottle")]:
+            if obj in obj_names:
+                crt_occ = [obj.nr_occurrences for obj in objects \
+                    if obj.class_name == obj]
+                crt_occ = crt_occ[0] if crt_occ else 0
+                predictions[act] = predictions.setdefault(act, 0) + 0.3 * \
+                    (max_occ - crt_occ) / (max_occ - min_occ)
 
     activity = max(predictions, key=predictions.get)
     confidence = 1.0 * max(predictions.values()) / sum(predictions.values())
