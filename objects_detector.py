@@ -70,9 +70,9 @@ def detect_objects(frames, verbose=1):
                     obj_raw['tracking_id'], obj_raw['score'], obj_raw['bbox'])
                 
                 if verbose >= 2:
-                    cv.rectangle(last_frame, (obj.bounding_box[0],
-                        obj.bounding_box[1]), (obj.bounding_box[2],
-                        obj.bounding_box[3]), BLUE, 2)
+                    cv.rectangle(last_frame, (int(obj.bounding_box[0]),
+                        int(obj.bounding_box[1])), (int(obj.bounding_box[2]),
+                        int(obj.bounding_box[3])), BLUE, 2)
                     cv.putText(last_frame, obj.class_name,
                         (int(obj.bounding_box[0]), int(obj.bounding_box[1]) - \
                          7), cv.FONT_HERSHEY_SIMPLEX, 0.4, BLUE, 1)
