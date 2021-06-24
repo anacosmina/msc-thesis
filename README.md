@@ -11,11 +11,21 @@ conda activate cosmina
 unset PYTHONPATH
 conda install pytorch==1.4.0 torchvision==0.5.0 -c pytorch
 pip install cython; pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
-navigate to object_detector/ and install the requirements: pip install -r requirements.txt
+~~~
+Navigate to `object_detector/` and install the requirements:
+~~~
+pip install -r requirements.txt
+~~~
+
+Continue installing:
+~~~
 pip install google-cloud-automl
 pip install opencv-contrib-python==4.1.2.30
 pip install matplotlib
 pip install gTTS
+pip install tensorflow==1.13.1
+pip install tflearn
+pip install imutils
 ~~~
 
 ### How to run:
@@ -51,6 +61,13 @@ If this error occurs: `AttributeError: module 'cv2.cv2' has no attribute 'motemp
 pip uninstall opencv-python
 pip uninstall opencv-contrib-python
 pip install opencv-contrib-python==4.1.2.30
+~~~
+
+If any error related to DCNv2 (that resides in `object_detector/lib/model/networks/DCNv2/`) occurs, download it and compile it again:
+~~~
+git clone https://github.com/CharlesShang/DCNv2/
+cd DCNv2
+./make.sh
 ~~~
 
 As a reference, here are all the packages that I have in my environment; note that not all of them are needed for running the demo, but the list may be useful if some dependencies need manual installation after the previous steps:
