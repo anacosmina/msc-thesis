@@ -11,14 +11,9 @@ conda activate cosmina
 unset PYTHONPATH
 conda install pytorch==1.4.0 torchvision==0.5.0 -c pytorch
 pip install cython; pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
-~~~
-Navigate to `object_detector/` and install the requirements:
-~~~
+cd object_detector/
 pip install -r requirements.txt
-~~~
-
-Continue installing:
-~~~
+cd ..
 pip install google-cloud-automl
 pip install opencv-contrib-python==4.1.2.30
 pip install matplotlib
