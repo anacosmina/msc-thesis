@@ -38,6 +38,11 @@ Other parameters that can be varied according to desired performance and availab
 _Note_: in order for the activity detection model to work, it needs to be deployed in the cloud. This is not happening all the time, as deployment is being paid per hour. Plus, you need a security key (`har-rgb-3cadab83ede7.json`) to call the model. When needed, please ask me to send you the key and to deploy the model.
 
 ### Troubleshooting:
+Other command for playing audio files, in case mpg321 does not work:
+~~~
+ffplay out.mp3 -nodisp -autoexit > /dev/null 2>&1
+~~~
+
 If while running any errors related to scikit-learn occur:
 ~~~
 pip uninstall scikit-learn
